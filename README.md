@@ -25,15 +25,17 @@ Data columns were renamed and stylized as snake_case.<br/>
 
 
 # EDA
-We looked at:
-Multicollinearity Matrix 
+We looked at:<br/>
+Multicollinearity Matrix <br/>
 After running the multicollinearity checks (heat map, VIF) it was clear that the numerical features were very related to each other (VIF value > 20). <br/>
 Feature extraction was done. The following features were extracted: <br/>
 - “max_quarter”, “min_quarter” (the quarters with the highest and lowest balances). Reasoning : To see if there was any seasonality<br/>
 -  “max”, “min” (the highest and lowest balances)<br/>
 Reasoning: To see if a lower or higher balance affected the likelihood of the offer being accepted<br/>
 -  “range” (the difference between max and min balances)<br/>
-Reasoning:  To see if a larger variability throughout the year affected the likelihood of the offer being accepted<br/>
+Reasoning:  
+To see if a larger variability throughout the year affected the likelihood of the offer being accepted<br/>
+
 The multicollinearity was checked again with the new features and there was a high correlation between “max” and “average_balance” and “max” and “range” so “max” was dropped.<br/>
 “q1_balance”, “q2_balance” and “q4_balance” were also dropped. “q3_balance” was kept as it was more related to the target.<br/>
 Performed Chi-Squared on Categoricals. <br/>
