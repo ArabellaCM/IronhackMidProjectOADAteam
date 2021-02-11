@@ -41,6 +41,7 @@ The multicollinearity was checked again with the new features and there was a hi
 “q1_balance”, “q2_balance” and “q4_balance” were also dropped. “q3_balance” was kept as it was more related to the target.<br/>
 Performed Chi-Squared on Categoricals. <br/>
 
+![alt text](https://github.com/alliesegre/IronhackMidProjectOADAteam/blob/main/cat_features.JPG)<br/>
 
 
 # Transformation
