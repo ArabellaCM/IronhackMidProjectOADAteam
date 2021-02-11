@@ -1,6 +1,6 @@
 # IronhackMidProject
 
-This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project.
+This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project. Our objective was to understand the demographics and other characteristics of the bank's customers comparing those who accept a credit card offer and who do not.
 
 # Team
 BootCamp : Ironhack Berlin Data Analytics Full-Time January Cohort /
@@ -14,15 +14,15 @@ Oliver
 - Packages: pandas, numpy, sklearn, matplotlib, seaborn <br/>
 
 # Data Cleaning
-We needed to clean up the data to make it usable for our model. We worked in two teams, splitting categoricals and numericals
-categoricals:
-<br/>
-- Numericals:
-Selected Average, and the Quarterly Balances as our numericals
-Replaced null values with the median <br/>
-- Categoricals:
-Applied a loop that checks the number of unique values in the column and based on this number splits the columns into numericals and categoricals. We used 10 as a threshold (less than 10 unique values -> categorical). <br/>
-No null values in the categorical columns <br/>
+The dataset was checked for duplicates.<br/>
+The identifier field (Customer Number) was dropped.<br/>
+The data columns were checked for null values. Null values were present in the numerical features and these were replaced with the median. <br/>
+The data type of each column was checked. <br/>
+The unique values and distribution of each categorical feature were checked - some subcategories are very underrepresented (e.g. Household Size) so they will be aggregated.<br/>
+The distributions of each numerical variable were checked. The data fields Credit Cards Held, Homes Owned, Household Size, Bank Accounts Open   were of numeric data type but are in fact categoricals so they will be treated as categories in our analysis.<br/>
+Boxplots were generated for numeric variables, it was clear that the data includes outliers that will be dealt with later.<br/>
+Data columns were renamed and stylized as snake_case.<br/>
+
 
 # EDA
 We looked at:
