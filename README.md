@@ -36,6 +36,7 @@ Reasoning: To see if a lower or higher balance affected the likelihood of the of
 Reasoning:  To see if a larger variability throughout the year affected the likelihood of the offer being accepted<br/>
 The multicollinearity was checked again with the new features and there was a high correlation between “max” and “average_balance” and “max” and “range” so “max” was dropped.<br/>
 “q1_balance”, “q2_balance” and “q4_balance” were also dropped. “q3_balance” was kept as it was more related to the target.<br/>
+Performed Chi-Squared on Categoricals. <br/>
 
 
 
