@@ -1,6 +1,6 @@
 # IronhackMidProject
 
-This repository contains the group project by the ... team for the Ironhack Mid-Bootcamp Project.
+This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project.
 
 # Team
 BootCamp : Ironhack Berlin Data Analytics Full-Time January Cohort /
