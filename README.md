@@ -1,6 +1,6 @@
 # IronhackMidProject
 
-This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project. Our objective was to understand the demographics and other characteristics of the bank's customers comparing those who accept a credit card offer and who do not.
+This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project. Our objective was to understand the demographics and other characteristics of the bank's customers comparing those who accept a credit card offer and those who do not.
 
 # Team
 BootCamp : Ironhack Berlin Data Analytics Full-Time January Cohort /
