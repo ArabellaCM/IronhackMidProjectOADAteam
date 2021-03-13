@@ -1,6 +1,7 @@
 # IronhackMidProject
 
-This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project.
+This repository contains the group project by the OADA team for the Ironhack Mid-Bootcamp Project. Our objective was to understand the demographics and other characteristics of the bank's customers comparing those who accept a credit card offer and those who do not.<br/>
+*Our presentation*: https://www.canva.com/design/DAEV1DrqKJw/ZwgwO6-9jTOuvqbVoQBE3Q/view?utm_content=DAEV1DrqKJw&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink<br/>
 
 # Team
 BootCamp : Ironhack Berlin Data Analytics Full-Time January Cohort /
@@ -14,32 +15,40 @@ Oliver
 - Packages: pandas, numpy, sklearn, matplotlib, seaborn <br/>
 
 # Data Cleaning
-We needed to clean up the data to make it usable for our model. We worked in two teams, splitting categoricals and numericals
-categoricals:
-<br/>
-- Numericals:
-Selected Average, and the Quarterly Balances as our numericals
-Replaced null values with the median <br/>
-- Categoricals:
-Applied a loop that checks the number of unique values in the column and based on this number splits the columns into numericals and categoricals. We used 10 as a threshold (less than 10 unique values -> categorical). <br/>
-No null values in the categorical columns <br/>
+The dataset was checked for duplicates.<br/>
+The identifier field (Customer Number) was dropped.<br/>
+The data columns were checked for null values. Null values were present in the numerical features and these were replaced with the median. <br/>
+The data type of each column was checked. <br/>
+The unique values and distribution of each categorical feature were checked - some subcategories are very underrepresented (e.g. Household Size) so they will be aggregated.<br/>
+The distributions of each numerical variable were checked. The data fields Credit Cards Held, Homes Owned, Household Size, Bank Accounts Open   were of numeric data type but are in fact categoricals so they will be treated as categories in our analysis.<br/>
+Boxplots were generated for numeric variables, it was clear that the data includes outliers that will be dealt with later.<br/>
+Data columns were renamed and stylized as snake_case.<br/>
+
 
 # EDA
-We looked at:
+We looked at:<br/>
 Multicollinearity Matrix <br/>
-VIF scores (the Quarters values were in a range of 476 - 871 <br/>
-Generated 3 new columns to look for max, min, and range of quarterly values <br/>
-Final columns: Average, Max, Min, Range <br/>
-Chi-Squared on Max and Min (p=0.0)<br/> <br/>
-Applied Log transformation to the 2 Numerical columns <br/>
-Possible problem with them being binomial distributions? <br/>
-Checked for multicollinearity between the categorical variables. <br/>
-We run the chi2 test on each combination of 2 categorical variables. <br/>
+After running the multicollinearity checks (heat map, VIF) it was clear that the numerical features were very related to each other (VIF value > 20). <br/>
+Feature extraction was done. The following features were extracted: <br/>
+- “max_quarter”, “min_quarter” (the quarters with the highest and lowest balances). Reasoning : To see if there was any seasonality<br/>
+-  “max”, “min” (the highest and lowest balances)<br/>
+Reasoning: To see if a lower or higher balance affected the likelihood of the offer being accepted<br/>
+-  “range” (the difference between max and min balances)<br/>
+Reasoning:  
+To see if a larger variability throughout the year affected the likelihood of the offer being accepted<br/>
+
+The multicollinearity was checked again with the new features and there was a high correlation between “max” and “average_balance” and “max” and “range” so “max” was dropped.<br/>
+“q1_balance”, “q2_balance” and “q4_balance” were also dropped. “q3_balance” was kept as it was more related to the target.<br/>
+Performed Chi-Squared on Categoricals. <br/>
+
+![alt text](https://github.com/alliesegre/IronhackMidProjectOADAteam/blob/main/cat_features.JPG)
+![alt text](https://github.com/alliesegre/IronhackMidProjectOADAteam/blob/main/num_features.JPG)<br/>
+
 
 # Transformation
 Removing outliers: <br/>
- Using IQR limit setting <br/>
- + 1.5 for average_balance and min <br/>
+ Using IQR threshold setting <br/>
+ + 1.5 for min <br/>
  +1 for q3 <br/>
  Boxplots to check distributions <br/>
 
@@ -61,4 +70,5 @@ The Logistic Regression model outperformed the other approaches on the test and 
 - KNN: Recall = 0.31
 
 # Visualization
-..
+- Tableau
+![alt text](https://github.com/alliesegre/IronhackMidProjectOADAteam/blob/main/Tableau_Overview.png)
